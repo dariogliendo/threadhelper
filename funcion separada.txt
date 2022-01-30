@@ -1,0 +1,16 @@
+ divideInTweets() {
+      if (this.addedContent.length > 280 || this.removedContent.length > 280) {
+        for(let i = 0; i < this.content.length; i+=280) {
+          let currentContent = this.content.slice(i === 0 ? 0 : i, 280)
+          if (this.content.length%i === 0) this.tweets.push(currentContent)
+          else this.currentTweet = currentContent
+        }
+      } else {
+        if (this.content.length < this.tweetCheckpoint) this.currentTweet = this.content.slice(this.lastCheckpoint, (this.lastCheckpoint + (this.content.length - this.lastCheckpoint)))
+        if (this.content.length === this.tweetCheckpoint) {
+          this.tweets.push(this.content.slice(this.lastCheckpoint, this.content.length))
+          this.currentTweet = ''
+          this.tweetCheckpoint += 280
+        }
+      }
+    },

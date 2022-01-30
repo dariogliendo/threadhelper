@@ -1,22 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <threadText></threadText>
+    <contentDivision></contentDivision>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import threadText from './components/threadText.vue'
+import contentDivision from './components/contentDivision.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    threadText,
+    contentDivision,
+  },
 }
 </script>
 
 <style lang="less">
+@import './main.less';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -24,5 +27,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  max-width: 800px;
+  margin: auto;
 }
 </style>
